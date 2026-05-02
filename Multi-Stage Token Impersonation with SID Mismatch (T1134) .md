@@ -4,7 +4,9 @@
 This detection tracks the chain of events where an attacker manipulates a security token to switch user contexts. It correlates three specific stages:
 
 -The Invocation: A process calls sensitive APIs (like DuplicateToken or LsaLogonUser) or uses runas /netonly.
+
 -The Logon: A successful logon event occurs shortly after the invocation on the same device.
+
 -The Child Execution: A new process is spawned under the context of the newly acquired identity.
 
 The query flags instances where the final executing identity differs from the original invoker, suggesting a successful identity shift.
