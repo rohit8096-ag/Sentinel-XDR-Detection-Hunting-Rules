@@ -70,14 +70,14 @@ DeviceProcessEvents
 
 #### Investigation Steps
 1. Analyze Command Context: Inspect SampleCommandLine and SampleParentCommandLine to verify whether the process was executed interactively or spawned autonomously by an AI agent or background job.
-2. Review AI Agent Inputs: If triggered by a GenAI tool (Cursor, Claude, Aider), examine recent repository files, pull requests, or untrusted prompt inputs processed by the tool for signs of Indirect Prompt Injection.
+2. Review AI Agent Inputs: If triggered by a GenAI tool (Cursor, Claude, Aider), examine recent repository files, pull requests or untrusted prompt inputs processed by the tool for signs of Indirect Prompt Injection.
 3. Audit Web & Worker Logs: If triggered by an application runtime (Gunicorn, Celery, Node), check web application access logs for Remote Code Execution (RCE) or Local File Inclusion (LFI) attempts.
-4. Correlate Outbound Network Activity: Check DeviceNetworkEvents around LastSeen to determine if accessed tokens, credentials, or SSH keys were transmitted to external IP addresses or unauthorized LLM endpoints.
+4. Correlate Outbound Network Activity: Check DeviceNetworkEvents around LastSeen to determine if accessed tokens, credentials or SSH keys were transmitted to external IP addresses or unauthorized LLM endpoints.
 
 #### Recommendations
-1. Rotate Exposed Secrets: Immediately revoke and rotate any AWS, Azure, GCP, Kubernetes, or SSH keys referenced in the execution parameters.
+1. Rotate Exposed Secrets: Immediately revoke and rotate any AWS, Azure, GCP, Kubernetes or SSH keys referenced in the execution parameters.
 2. Restrict AI Sandbox Privileges: Configure developer AI assistants and local agent runtimes with read-only filesystem boundaries and path exclusions (~/.aws, ~/.ssh, .env).
-3. Harden Application Workers: Ensure web workers run under least-privilege service accounts, isolate Kubernetes pods using network policies, and disable unnecessary host mounts.
+3. Harden Application Workers: Ensure web workers run under least-privilege service accounts, isolate Kubernetes pods using network policies and disable unnecessary host mounts.
 
 #### Author 
 - **Name: Rohit Ashok**
