@@ -49,12 +49,10 @@ DeviceProcessEvents
 | extend CredentialType = case(ProcessCommandLine has_any (SystemCredentialPaths),"Linux system credential",
          ProcessCommandLine has_any (HighValueCredPaths),"High-value credential/secret",
          ProcessCommandLine has_any (AppSecretPaths),"Application secret/config",
-         "Other"
-    )
+         "Other")
 | extend ProcessCategory = case(FileName in~ (GenAITools) or InitiatingProcessFileName in~ (GenAITools),"GenAI tool",
          InitiatingProcessFileName in~ (WorkerProcesses), "AI/ML/Application worker",
-         "Other"
-    )
+         "Other")
 | summarize
     AlertCount = count(),
     FirstSeen = min(Timestamp),
