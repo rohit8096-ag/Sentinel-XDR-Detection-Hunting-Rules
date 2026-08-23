@@ -1,7 +1,7 @@
 # *Active Scanning of AI-Assisted Service Mailboxes*
 
 #### Description
-This detection identifies instances where external threat actors send multiple patterned probe emails to corporate service mailboxes (support@, info@, help@, etc.) to measure automated response latency, validate active email targets, and fingerprint backend automated workflows or AI agents. Scripted attacks exhibiting extremely rapid, highly consistent auto-reply latency (AvgLatencySeconds < 60 and StdDevLatencySeconds < 15) indicate active scanning to discover backend ticketing parameters or test automated AI input handling pipelines prior to delivering phishing payloads or prompt injections.
+This detection identifies instances where external threat actors send multiple patterned probe emails to corporate service mailboxes (support@, info@, help@ etc.) to measure automated response latency, validate active email targets and fingerprint backend automated workflows or AI agents. Scripted attacks exhibiting extremely rapid, highly consistent auto-reply latency (AvgLatencySeconds < 60 and StdDevLatencySeconds < 15) indicate active scanning to discover backend ticketing parameters or test automated AI input handling pipelines prior to delivering phishing payloads or prompt injections.
 
 #### MITRE ATT&CK
 | Technique ID | Title | Link |
