@@ -48,7 +48,7 @@ let AIPaths = dynamic([
 ]);
 AzureDiagnostics
 | where TimeGenerated > ago(24h)
-| where ResourceType in ("APPLICATIONGATEWAYS", "APIMANAGEMENT")
+| where ResourceType in ("APPLICATIONGATEWAYS")
 | where isnotempty(requestUri_s)
 | where requestUri_s  has_any (AIPaths)
 | where httpStatus_d between (200 .. 299)
