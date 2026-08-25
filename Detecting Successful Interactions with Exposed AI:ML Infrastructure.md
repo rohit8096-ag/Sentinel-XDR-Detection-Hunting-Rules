@@ -51,7 +51,7 @@ AzureDiagnostics
 | where ResourceType in ("APPLICATIONGATEWAYS", "APIMANAGEMENT")
 | where isnotempty(requestUri_s)
 | where requestUri_s  has_any (AIPaths)
-| where httpStatus_d between (200 .. 330)
+| where httpStatus_d between (200 .. 299)
 | project TimeGenerated,Resource,OperationName,RequestURI=requestUri_s,UserAgent=userAgent_s,HttpMethod=httpMethod_s,ClientIP=clientIP_s,RequestQuery=requestQuery_s,HTTPStaus=httpStatus_d,ORIGINALHOST=originalHost_s
 ```
 
