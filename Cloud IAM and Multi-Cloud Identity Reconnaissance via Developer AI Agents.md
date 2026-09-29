@@ -65,7 +65,7 @@ let DiscoveryCommands= strcat(
 );
 DeviceProcessEvents
 | where Timestamp > ago(lookback)
-| where InitiatingProcessFileName has_any (AITools) or InitiatingProcessParentFileName has_any (AITools)
+| where InitiatingProcessFileName in (AITools) or InitiatingProcessParentFileName in (AITools)
 | where ProcessCommandLine has_any (CliTerms)   
 | where ProcessCommandLine matches regex DiscoveryCommands
 | extend HighSignalHit = ProcessCommandLine has_any (HighSignal)
